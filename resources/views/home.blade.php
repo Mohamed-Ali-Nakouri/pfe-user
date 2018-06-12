@@ -15,20 +15,25 @@
                     @endif
 
                     You are logged in!
-                        <a id="login" href="/">lol</a>
+
                         <?php
                         $x=Auth::user();
                         $x1=$x['Inscription'];
+                        $x2=$x['role'];
 
-                        if($x1==0)
+                        if($x1==0 && $x2=='Etudiant')
                             {
                          echo "<br>inscription not completed , once your inscription is completed you can enter the dashboard";
-                               header("Location: http://www.google.com/");
+
                                 }
-                                elseif ($x1==1)
+                                elseif ($x1==1 && $x2=='Etudiant')
                                     {
-                                        echo "inscription completed";
+                                        echo "<a href='/dashboard'> Proceed to Dashboard<a/>";
                                     }
+                                    elseif ($x2=='prof')
+                                        {
+                                            echo "<a href='/dashboard'> Proceed to Dashboard<a/>";
+                                        }
 
                         ?>
 

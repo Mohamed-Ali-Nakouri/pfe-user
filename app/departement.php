@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class departement extends Model
 {
+
+    protected static $logAttributes = ['*'];
   protected $guarded=['etat'];
   public function class()
   {

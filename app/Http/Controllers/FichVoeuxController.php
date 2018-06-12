@@ -14,8 +14,8 @@ class FichVoeuxController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:prof');
-        $this->middleware('auth');
+        //$this->middleware('role:prof');
+        //$this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class FichVoeuxController extends Controller
         $prof=enseignant::where('email',Auth::user()->email)->get();
         $class=classe::where('idDept',$prof['0']->idDept)->get();
         $time=lession::all();
-        return view('layouts.Users.Fich_voeux',compact('sess','prof','time','class'));
+        return view('layouts.user.Fiche_Voeux',compact('sess','prof','time','class'));
     }
     /**
      * Show the form for creating a new resource.
@@ -39,7 +39,7 @@ class FichVoeuxController extends Controller
     {
         $sess=session::where('etat','v')->get();
         $prof=enseignant::where('email',Auth::user()->email)->get();
-        $pdf = PDF::loadView('layouts.Users.Fich_voeux',compact('sess','prof'));
+        $pdf = PDF::loadView('layouts.user.Fiche_Voeux',compact('sess','prof'));
         return $pdf->download('test.pdff');
     }
     /**

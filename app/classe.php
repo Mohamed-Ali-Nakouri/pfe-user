@@ -3,22 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class classe extends Model
 {
-  // $table->string('idForm');
-  // $table->string('idSess');
-  // $table->string('idDept');
-    public function formation()
+
+    protected static $logAttributes = ['*'];
+    protected $guarded=['etat'];
+    public function libDept($id)
     {
-      return $this->belongsTo(formation::class);
+        $dep=departement::where('idDept',$id)->get();
+        return $dep;
     }
-    public function departement()
+    public function libForm($id)
     {
-      return $this->belongsTo(departement::class);
+        $form=formation::where('idForm',$id)->get();
+        return $form;
     }
-    public function session()
-    {
-      return $this->belongsTo(session::class);
-    }
+
 }

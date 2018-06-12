@@ -23,7 +23,7 @@
 
                         if($x1==0 && $x2=='Etudiant')
                             {
-                         echo "<br>inscription not completed , once your inscription is completed you can enter the dashboard";
+                         echo "<br>inscription not completed , complete it<a href='/form'> Here<a/>";
 
                                 }
                                 elseif ($x1==1 && $x2=='Etudiant')

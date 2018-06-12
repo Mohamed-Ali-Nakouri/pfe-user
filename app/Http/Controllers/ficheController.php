@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\ficheRenseignement;
+use App\User;
 use Illuminate\Http\Request;
+use DB;
 
 class ficheController extends Controller
 {
@@ -17,9 +19,12 @@ class ficheController extends Controller
     {
 
         ficheRenseignement::create(request()->all());
+        $flight = User::where('cin'==\request('cin'));
 
+        $flight->Inscription = '1';
 
+        $flight->save();
 
-        return redirect('/dashboard');
+        return redirect('/home');
     }
 }

@@ -181,7 +181,7 @@
                             </div>
                             <div id="reg">
 
-                            <form class="form" method="POST" action="{{route('register')}}" enctype="multipart/form-data">
+                            <form class="form" method="POST" action="/create_std" enctype="multipart/form-data">
                                 @csrf
                                 {{ csrf_field() }}
                                 <div class="card-body">

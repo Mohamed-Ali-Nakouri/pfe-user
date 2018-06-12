@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Email address</label>
-                                <input type="email" class="form-control" >
+                                <input type="email" class="form-control" value="{{ Auth::user()->email }}">
                             </div>
                         </div>
                     </div>
@@ -41,13 +41,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Fist Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{ Auth::user()->name }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Last Name</label>
-                                <input type="text" class="form-control" >
+                                <input type="text" class="form-control"  value="{{ Auth::user()->surname }}">
                             </div>
                         </div>
                     </div>
@@ -95,9 +95,9 @@
             <div class="card-avatar">
                 <a href="#pablo">
                     @auth
-                    <img class="img" src="../../assets/img/faces/avatar.jpg" />
+                    <img class="img" src="images\profile_img\{{Auth::User()->avatar}}" />
                         @else
-                        <img class="img" src="../../assets/img/faces/0.jpg" />
+                        <img class="img" src="images\profile_img\{{Auth::User()->avatar}}" />
                     @endauth
                 </a>
             </div>

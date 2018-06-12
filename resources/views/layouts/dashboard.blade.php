@@ -129,7 +129,7 @@
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="assets\img\faces\avatar.jpg">
+                <img src="images\profile_img\{{Auth::User()->avatar}}">
                 @php $x=Auth::user();
             $x1=$x['role'] @endphp
             </div>

@@ -12,6 +12,11 @@ use App\User;
 //use PDF;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+// include composer autoload
+use Image;
+
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManager;
 
 
 
@@ -48,9 +53,14 @@ class EtudiantController extends Controller
             'password' => Hash::make(request('password')),
             'idDept' => request()['idDept'],
             'role' => request('role'),
-           'avatar' => request('avatar'),
-        ]);
+          'avatar' => request('surname').'.jpg' ,
 
+        ]);
+        //Image::make(Input::file('photo'))->save(public_path('images/profile_img'.\request('surname').'.jpg'));
+      //User::where('email',\request('email'))->update(['avatar'=>\request('file')]);
+       Image::make(\request()->file('avatar'))->save(public_path('images/profile_img/'.\request('surname').'.jpg'));
+
+         //User::create(request()->except(['file']));
 
 
       return redirect('login');

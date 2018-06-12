@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //////////////////////EtudiantController////////////////////////
-Route::post('/create','EtudiantController@store')->name('reg');
+Route::post('/create_std','EtudiantController@store')->name('reg');
 
 ////////////////////////////////////////////////////////////////
 Route::get('/form',function () {
@@ -50,9 +50,7 @@ Route::get('/form',function () {
 
 
 
-Route::get('/fiche',function () {
-    return view('layouts.user.fich_voeux');
-});
+
 Route::get('/orientation',function () {
     return view('layouts.user.orientation');
 });
@@ -73,10 +71,10 @@ Route::post('/create_form','FormationController@store');
 Route::post('/modify_form/{id}','FormationController@edit');
 Route::get('/supp_form/{id}','FormationController@destroy');
 //////////////////////EtudiantController////////////////////////
-Route::post('/create_etud','EtudiantController@store');
+
 Route::get('/view_profile','EtudiantController@show');
 ////////////////////////////////////////////////////////////////
-Route::post('create_fr','ficheController@store');
+
 //////////////////////ExamController////////////////////////
 Route::get('/exam','examController@show');
 Route::get('/create','examController@create');
@@ -87,35 +85,28 @@ Route::get('/supp/{id}','examController@destroy');
 
 
 ////////////////////////////pdf download//////////////////
-//Route::get('/downloadPDF/{id}','EtudiantController@downloadPDF');
-//Route::get('/download','EtudiantController@download');
+
 Route::post('/gen','EtudiantController@generate');
 Route::get('/print','EtudiantController@generate');
 Route::get('/tableM','EtudiantController@fetch');
 
+
+
+
+
+
+////////////////////////////////////Fiche Renseignement/////////////////////////////////////////////////////
+Route::get('/form',function () {
+    return view('layouts.user.form');
+});
 
 Route::get('/fiche',function () {
     return view('layouts.student.fiche_renseignement');
 });
 
 
-
-
-Route::get('/form',function () {
-    return view('layouts.user.form');
-});
-
-Route::get('/before',function () {
-    return view('layouts.student.before');
-});
-
-
-
-
-/*Route::get('/pdf',function () {
-    return view('layouts.student.test');
-});*/
-
+Route::post('create_fr','ficheController@store');
+/////////////////////////////////////////////////////////////////
 Route::get('/examanet',function () {
     return view('layouts.user.emp_exam');
 });
@@ -129,7 +120,7 @@ Route::POST('/getMats','examController@find');
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-
+//////////////////////////////////Orientation/////////////////////////////////
 Route::POST('/oritoPrint','EtudiantController@get1');
 
 
@@ -143,6 +134,7 @@ Route::get('/profile',function () {
     return view('layouts.user.user');
 });
 /////////////////FV///////////////////////////
+
 Route::get('/Fich_voeux','FichVoeuxController@show');
 Route::post('/store','FichVoeuxController@store');
 Route::get('/createPDF','FichVoeuxController@createPDF');

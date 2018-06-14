@@ -5,18 +5,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( "#sortable" ).sortable();
-            $( "#sortable" ).disableSelection();
-        } );
-    </script>
+
+
     <style>
 
         se{
@@ -152,13 +146,14 @@
                                                 @foreach($forms as $data)
                                 <li class="ui-state-default">{{$data->libForm}} </li>
                                             @endforeach
+                                            </ul>
                                         </td>
 
 
                                     </tr>
 
 
-                            </ul>
+
 
 
                 </table>
@@ -169,11 +164,13 @@
         </form>
 
     </div>
-
+@section('custemScript')
 <script>
 
     $('option:selected', this).remove();
-
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
 
     </script>
+@endsection
 @endsection

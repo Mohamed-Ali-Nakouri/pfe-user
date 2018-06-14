@@ -1,9 +1,11 @@
 @extends('layouts.dashboard')
 @section('content')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="js/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {{ csrf_field() }}
+    <script src="{{asset('js/jquery-2.1.3.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.js')}}"></script>
     <style>
         td{height:10px;}
         li{list-style-type:none}
@@ -16,80 +18,7 @@
             <div class="col-md-8 " style="margin-bottom:-40px">
             <div class="card card-calendar">
                 <div class="card-body">
-            <!--        <div id="fullCalendar" class="fc fc-unthemed fc-ltr">
-                        <div class="fc-toolbar fc-header-toolbar">
-                            <div class="fc-left"><h2>Class</h2></div>
-                        </div>
-                        <div class="fc-view-container mt-lg-5 pt-3" style="">
-                            <div class="fc-view fc-month-view fc-basic-view" style="">
-                                <table class="">
-                                    <thead class="fc-head">
-                                    <tr>
-                                        <td class="fc-head-container fc-widget-header">
-                                            <div class="fc-row fc-widget-header">
-                                                <table class="">
-                                                    <thead>
-                                                    <tr>
 
-                                                        <th class="fc-day-header fc-widget-header fc-mon">
-                                                            <span>Mon</span>
-                                                        </th>
-                                                        <th class="fc-day-header fc-widget-header fc-tue">
-                                                            <span>Tue</span>
-                                                        </th>
-                                                        <th class="fc-day-header fc-widget-header fc-wed">
-                                                            <span>Wed</span>
-                                                        </th>
-                                                        <th class="fc-day-header fc-widget-header fc-thu">
-                                                            <span>Thu</span>
-                                                        </th>
-                                                        <th class="fc-day-header fc-widget-header fc-fri">
-                                                            <span>Fri</span>
-                                                        </th>
-                                                        <th class="fc-day-header fc-widget-header fc-sat">
-                                                            <span>Sat</span>
-                                                        </th>
-                                                    </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="fc-body">
-                                    <tr>
-                                        <td class="fc-widget-content">
-                                            <div class="fc-scroller fc-day-grid-container" style="overflow: hidden;">
-                                                <div class="fc-day-grid fc-unselectable">
-                                                    <div class="here">
-                                                    @for($i=0;$i<6;$i++)
-                                                            <div class="fc-row" style="">
-                                                                <div class="fc-bg">
-                                                                    <table class="">
-                                                                        <tbody>
-                                                                        <tr >
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                    @endfor
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>  -->
                 <div  class="pl-4 pb-4" style="float: left;">
                     <select name="departements" id="dep" class="form-control" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-style:oblique">
                         <option value="" selected="selected" disabled="disabled">choisir department</option>
@@ -116,9 +45,9 @@
 
                 </div><br><br><br><br><br><br><br>
                 <label for="from">From</label>
-                <input type="text" id="from" name="from">
+                <input type="text" id="from" name="from" class="form-control">
                 <label for="to">to</label>
-                <input type="text" id="to" name="to">
+                <input type="text" id="to" name="to" class="form-control">
                 </div>
             </div>
             </div>
@@ -228,7 +157,7 @@
             </div>
         </div>
 
-
+@section('custemScript')
     <script>
 
         $('').remove();
@@ -441,4 +370,5 @@
 
 
     </script>
+    @endsection
 @endsection

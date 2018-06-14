@@ -125,7 +125,9 @@ Route::POST('/oritoPrint','EtudiantController@get1');
 
 
 Route::get('/orientation','EtudiantController@get');
-
+Route::get('test',function (){
+    return view('layouts.user.oriontation');
+});
 Route::get('/emploi','EmploiController@show');
 Route::POST('/fetch_classeEmp','FetchsController@classeEmp');
 ///////////////////////////////////////////////////////////////////////////

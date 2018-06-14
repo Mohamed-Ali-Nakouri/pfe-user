@@ -56,11 +56,10 @@ class EtudiantController extends Controller
           'avatar' => request('surname').'.jpg' ,
 
         ]);
-        //Image::make(Input::file('photo'))->save(public_path('images/profile_img'.\request('surname').'.jpg'));
-      //User::where('email',\request('email'))->update(['avatar'=>\request('file')]);
+
        Image::make(\request()->file('avatar'))->save(public_path('images/profile_img/'.\request('surname').'.jpg'));
 
-         //User::create(request()->except(['file']));
+        
 
 
       return redirect('login');

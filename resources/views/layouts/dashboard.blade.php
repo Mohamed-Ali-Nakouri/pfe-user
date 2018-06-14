@@ -372,7 +372,7 @@
     7 days
 </button> -->
 
-<div class="card" >
+<div class="card here" >
   @yield('content')
 </div>
 
@@ -526,7 +526,7 @@ AceVel                    </a>
     </body>
 
     <!--   Core JS Files   -->
-<script src="assets\js\core\jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="assets\js\core\popper.min.js"></script>
 
 
@@ -613,17 +613,9 @@ AceVel                    </a>
 <script src="assets\js\plugins\fullcalendar.min.js"></script>
 
 <!-- demo init -->
-<script src="assets\js\plugins\demo.js"></script>
+<script src="{{asset('js/demo.js')}}"></script>
 
-
-
-
-
-
-
-
-
-
+    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 
 
 
@@ -650,126 +642,18 @@ $(document).ready(function(){
 
 });
 
-</script>
 
 
 
-
-
-
-
-
-
-
-  <script type="text/javascript">
-$(document).ready(function(){
-
-  demo.initVectorMap();
-});
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Sharrre libray -->
-<script src="assets\assets-for-demo\js\jquery.sharrre.js">
-
-</script>
-<script>
-
-$(document).ready(function(){
-    $('#twitter').sharrre({
-      share: {
-        twitter: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      buttons: { twitter: {via: 'CreativeTim'}},
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('twitter');
-      },
-      template: '<i class="fa fa-twitter"></i> Twitter',
-      url: 'https://demos.creative-tim.com/material-kit-pro/presentation.html'
-    });
-
-    $('#facebook').sharrre({
-      share: {
-        facebook: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('facebook');
-      },
-      template: '<i class="fa fa-facebook-square"></i> Facebook',
-      url: 'https://demos.creative-tim.com/material-kit-pro/presentation.html'
-    });
-
-    $('#google').sharrre({
-      share: {
-        googlePlus: true
-      },
-      enableCounter: false,
-      enableHover: false,
-      enableTracking: true,
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('googlePlus');
-      },
-      template: '<i class="fa fa-google-plus"></i> Google',
-      url: 'https://demos.creative-tim.com/material-kit-pro/presentation.html'
-    });
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
 });
 
 
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-46172202-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-})();
-
-// Facebook Pixel Code Don't Delete
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','//connect.facebook.net/en_US/fbevents.js');
-
-try{
-	fbq('init', '111649226022273');
-	fbq('track', "PageView");
-
-}catch(err) {
-	console.log('Facebook Track Error:', err);
-}
-
 </script>
 
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"></noscript>
 
-
+    @yield('custemScript')
 </html>

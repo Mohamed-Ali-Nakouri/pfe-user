@@ -45,7 +45,7 @@ class examController extends Controller
     {
         $classes_list=classe::select('idForm','nomClass')->where('idDept',request('id'))->get();
 
-        return $classes_list;
+        return  $classes_list;
     }
 
     public function fetch_salles_for_exam()

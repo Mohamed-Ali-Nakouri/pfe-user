@@ -90,17 +90,23 @@
             </div>
         </div>
     </div>
+	
     <div class="col-md-4">
         <div class="card card-profile">
-            <div class="card-avatar">
-                <a href="#pablo">
-                    @auth
-                    <img class="img" src="images\profile_img\{{Auth::User()->avatar}}" />
-                        @else
-                        <img class="img" src="images\profile_img\{{Auth::User()->avatar}}" />
-                    @endauth
-                </a>
-            </div>
+            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail img-circle">
+                                <img class="img" src="images\profile_img\{{Auth::User()->avatar}}" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                            <div>
+                                <span class="btn btn-round btn-rose btn-file">
+                                    <span class="fileinput-new">Update Photo</span>
+                                    <span class="fileinput-exists">Confirm</span>
+                                    <input type="file" name="..." /></span>
+                                <br />
+                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                            </div>
+                        </div>
 
             <div class="card-body">
                 <h6 class="card-category text-gray">Student</h6>

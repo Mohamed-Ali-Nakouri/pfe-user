@@ -55,7 +55,31 @@ Route::get('/orientation',function () {
     return view('layouts.user.orientation');
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////Fetchs//////////////////////
+Route::get('/fetch_formation','FetchsController@formation');
+Route::POST('/fetch_matsC','FetchsController@matsC');
+Route::POST('/fetch_matsAT','FetchsController@matsAT');
+Route::POST('/fetch_prof_hours','FetchsController@repartition');
+Route::POST('/fetch_Mats','FetchsController@matiere_du_Classe');
+Route::POST('/fetch_voeux','FetchsController@prof_demonders');
+Route::POST('/fetch_prof','FetchsController@profs');
+Route::POST('/affectedto','FetchsController@affectedto');
+Route::POST('/fetch_affectedtotab','FetchsController@affectedtotab');
+Route::POST('/fetch_classeEmp','FetchsController@classeEmp');
+Route::POST('/fetch_emp_salle','FetchsController@Emp_Salle');
+Route::POST('/fetch_salle_vide','FetchsController@salle_vide');
+Route::POST('/fetch_salle_vide2','FetchsController@salle_vide2');
+Route::POST('/fetch_prof_emp','FetchsController@profEmp');
+Route::POST('/MatInfo','FetchsController@MatInfo');
+/////////////////PDFS/////////////////////////
+//Route::POST('/Pdf_emp_salle','PdfsController@emp_salle');
 
+////////////////Affected/////////////////////
+Route::get('/affectMat','AffectMatController@show');
+Route::POST('/insert','AffectMatController@store');
+////////////////emploi///////////////////////
+Route::get('/emploi','EmploiController@show');
+Route::POST('/emp_insert','EmploiController@store');
 //////////////////////DepartementController////////////////////////
 Route::get('/departement','DepartementController@show');
 Route::get('/create','DepartementController@create');
@@ -121,7 +145,7 @@ Route::POST('/getMats','examController@find');
 
 
 //////////////////////////////////Orientation/////////////////////////////////
-Route::POST('/oritoPrint','EtudiantController@get1');
+
 
 
 Route::get('/orientation','EtudiantController@get');
@@ -129,6 +153,7 @@ Route::get('test',function (){
     return view('layouts.user.oriontation');
 });
 Route::get('/emploi','EmploiController@show');
+Route::get('/emploiprof','EmploiController@showProf');
 Route::POST('/fetch_classeEmp','FetchsController@classeEmp');
 ///////////////////////////////////////////////////////////////////////////
 
@@ -137,6 +162,6 @@ Route::get('/profile',function () {
 });
 /////////////////FV///////////////////////////
 
-Route::get('/Fich_voeux','FichVoeuxController@show');
+Route::GET('/Fich_voeux','FichVoeuxController@show');
 Route::post('/store','FichVoeuxController@store');
 Route::get('/createPDF','FichVoeuxController@createPDF');

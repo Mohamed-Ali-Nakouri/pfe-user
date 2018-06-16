@@ -58,6 +58,50 @@ class EmploiController extends Controller
         return view('layouts.user.emp_class',compact('lession','result','classes','Room'));
     }
 
+
+    public function showProf()
+    {
+        $lession=lession::all();
+        $dep=departement::all();
+        $formation=formation::all();
+        $salle=emp_salle::all()->unique('idSalle');
+        $classes='';
+        foreach ($formation as $form)
+        {
+            $classe=classe::where('idForm',$form->idForm)->get();
+
+            $classes.='<optgroup label="'.$form->libForm.'">';
+            foreach ($classe as $data_clas)
+            {$classes.='<option value="'.$data_clas->nomClass.'">'.$data_clas->nomClass.'</option>';
+
+            }
+
+            $classes.='</optgroup>';
+
+        }
+        $result='';
+
+        foreach ($dep as $data)
+        {
+            $prof=enseignant::where('idDept',$data->idDept)->get();
+
+            $result.='<optgroup label="'.$data->libDept.'">';
+            foreach ($prof as $dataprof)
+            {$result.='<option value="'.$dataprof->matProf.'">'.$dataprof->nom.' '.$dataprof->prenom.'</option>';
+
+            }
+
+            $result.='</optgroup>';
+
+        }
+        $Room='';
+        foreach ($salle as $data_salle)
+        {
+            $Room.='<option value="'.$data_salle->idSalle.'">'.$data_salle->idSalle.'</option>';
+        }
+        return view('layouts.user.emp_prof',compact('lession','result','classes','Room'));
+    }
+
     public function store(Request $request)
     {
         $prof=$request->prof;

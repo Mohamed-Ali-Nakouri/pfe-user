@@ -8,7 +8,7 @@
         td{height:10px;}
 
     </style>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <form action="/emp_insert" method="POST">
@@ -113,7 +113,13 @@
 
         </div>
     </form>
+    @endsection
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    @section('custemScript')
     <script>
 $(".affect").hide();
         var $table = $('table.scroll'),

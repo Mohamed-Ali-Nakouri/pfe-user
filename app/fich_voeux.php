@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Spatie\Activitylog\Traits\LogsActivity;
+
 class fich_voeux extends Model
 {
 

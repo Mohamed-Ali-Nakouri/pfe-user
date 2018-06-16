@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-	
+
     <div class="col-md-4">
         <div class="card card-profile">
             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
@@ -99,12 +99,15 @@
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                             <div>
+                                <form method="POST" action="/">
                                 <span class="btn btn-round btn-rose btn-file">
                                     <span class="fileinput-new">Update Photo</span>
-                                    <span class="fileinput-exists">Confirm</span>
-                                    <input type="file" name="..." /></span>
+                                    <span class="fileinput-exists"></span>
+                                    <input type="file" name="avatar" /></span>
+                                    <span class="fileinput-new"> <input type="file" name="avatar" /></span>
                                 <br />
                                 <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </form>
                             </div>
                         </div>
 

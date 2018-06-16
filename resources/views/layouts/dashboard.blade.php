@@ -18,42 +18,7 @@
 </title>
 
 
-<!-- Extra details for Live View on GitHub Pages -->
-  <!-- Canonical SEO -->
-<link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro">
 
-<!--  Social tags      -->
-<meta name="keywords" content="material dashboard, bootstrap 4 material admin, bootstrap 4 material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap 4 dashboard, css3 dashboard, bootstrap 4 admin, bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, premium material design admin">
-
-<meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-
-<!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="Material Dashboard PRO by Creative Tim">
-<meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-
-<meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
-<!-- Twitter Card data -->
-
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@creativetim">
-<meta name="twitter:title" content="Material Dashboard PRO by Creative Tim">
-
-<meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-<meta name="twitter:creator" content="@creativetim">
-<meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
-<meta name="twitter:data1" content="Material Dashboard PRO by Creative Tim">
-<meta name="twitter:label1" content="Product Type">
-<meta name="twitter:data2" content="$49">
-<meta name="twitter:label2" content="Price">
-
-<!-- Open Graph data -->
-<meta property="fb:app_id" content="655968634437471">
-<meta property="og:title" content="Material Dashboard PRO by Creative Tim">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://demos.creative-tim.com/material-kit-pro/presentation.html">
-<meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
-<meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
-<meta property="og:site_name" content="Creative Tim">
 
 
 
@@ -70,8 +35,7 @@
 <!-- Documentation extras -->
 
 
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="assets\assets-for-demo\demo.css" rel="stylesheet">
+
 
 <!-- iframe removal -->
 
@@ -156,7 +120,7 @@
                     <div class="collapse" id="collapseExample">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="profile">
                                     <span class="sidebar-mini"> MP </span>
                                     <span class="sidebar-normal"> My Profile </span>
                                 </a>
@@ -258,7 +222,7 @@
                     <div class="collapse" id="formsExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/tableM">
+                                <a class="nav-link" href="/Fich_voeux">
                                     <span class="sidebar-mini"> W </span>
                                     <span class="sidebar-normal"> Wish List  </span>
                                 </a>
@@ -525,99 +489,155 @@ AceVel                    </a>
 
     </body>
 
+    {{--<!--   Core JS Files   -->--}}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {{--<script  src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>--}}
+{{--<script src="assets\js\core\popper.min.js"></script>--}}
+
+
+{{--<script src="assets\js\bootstrap-material-design.min.js"></script>--}}
+
+
+    <script src="assets\js\plugins\perfect-scrollbar.jquery.min.js"></script>
+
+
+
+{{--<!--  Google Maps Plugin  -->--}}
+{{--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>--}}
+
+
+{{--<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->--}}
+{{--<script src="assets\js\plugins\moment.min.js"></script>--}}
+
+{{--<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->--}}
+{{--<script src="assets\js\plugins\bootstrap-datetimepicker.min.js"></script>--}}
+
+{{--<!--	Plugin for the Sliders, full documentation here: https://refreshless.com/nouislider/ -->--}}
+{{--<script src="assets\js\plugins\nouislider.min.js"></script>--}}
+
+
+
+{{--<!--	Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->--}}
+{{--<script src="assets\js\plugins\bootstrap-selectpicker.js"></script>--}}
+
+{{--<!--	Plugin for Tags, full documentation here: https://xoxco.com/projects/code/tagsinput/  -->--}}
+{{--<script src="assets\js\plugins\bootstrap-tagsinput.js"></script>--}}
+
+{{--<!--	Plugin for Fileupload, full documentation here: https://www.jasny.net/bootstrap/javascript/#fileinput -->--}}
+{{--<script src="assets\js\plugins\jasny-bootstrap.min.js"></script>--}}
+
+{{--<!-- Plugins for presentation and navigation  -->--}}
+{{--<script src="assets\assets-for-demo\js\modernizr.js"></script>--}}
+
+
+
+
+{{--<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->--}}
+
+{{--<script src="assets\js\material-dashboard.js?v=2.0.1"></script>--}}
+
+
+
+{{--<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>--}}
+
+{{--<!-- Library for adding dinamically elements -->--}}
+{{--<script src="assets\js\plugins\arrive.min.js" type="text/javascript"></script>--}}
+
+{{--<!-- Forms Validations Plugin -->--}}
+{{--<script src="assets\js\plugins\jquery.validate.min.js"></script>--}}
+
+{{--<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->--}}
+{{--<script src="assets\js\plugins\chartist.min.js"></script>--}}
+
+{{--<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->--}}
+{{--<script src="assets\js\plugins\jquery.bootstrap-wizard.js"></script>--}}
+
+{{--<!--  Notifications Plugin, full documentation here: https://bootstrap-notify.remabledesigns.com/    -->--}}
+{{--<script src="assets\js\plugins\bootstrap-notify.js"></script>--}}
+
+{{--<!-- Vector Map plugin, full documentation here: https://jvectormap.com/documentation/ -->--}}
+{{--<script src="assets\js\plugins\jquery-jvectormap.js"></script>--}}
+
+{{--<!-- Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->--}}
+{{--<script src="assets\js\plugins\nouislider.min.js"></script>--}}
+
+{{--<!--  Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->--}}
+{{--<script src="assets\js\plugins\jquery.select-bootstrap.js"></script>--}}
+
+{{--<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->--}}
+{{--<script src="assets\js\plugins\jquery.datatables.js"></script>--}}
+
+{{--<!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->--}}
+{{--<script src="assets\js\plugins\sweetalert2.js"></script>--}}
+
+{{--<!-- Plugin for Fileupload, full documentation here: https://www.jasny.net/bootstrap/javascript/#fileinput -->--}}
+{{--<script src="assets\js\plugins\jasny-bootstrap.min.js"></script>--}}
+
+{{--<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->--}}
+{{--<script src="assets\js\plugins\fullcalendar.min.js"></script>--}}
+
+{{--<!-- demo init -->--}}
+{{--<script src="{{asset('js/demo.js')}}"></script>--}}
+
+    {{--<script src="{{asset('js/jquery-ui.min.js')}}"></script>--}}
+
     <!--   Core JS Files   -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="assets\js\core\popper.min.js"></script>
+    <script src="{{asset('js/sweetalert2.js')}}"></script>
 
-
-<script src="assets\js\bootstrap-material-design.min.js"></script>
-
-
-<script src="assets\js\plugins\perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-material-design.min.js')}}"></script>
 
 
 
-<!--  Google Maps Plugin  -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
+    <script src="{{asset('js/perfect-scrollbar.jquery.min.js')}}"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+    <script src="{{asset('js/moment.min.js')}}"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
+    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="{{asset('js/nouislider.min.js')}}"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="{{asset('js/bootstrap-selectpicker.js')}}"></script>
+    <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="{{asset('js/jasny-bootstrap.min.js')}}"></script>
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="{{asset("js/material-dashboard790f.js")}}"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="{{asset('js/arrive.min.js')}}" type="text/javascript"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+    <!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
 
-
-<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-<script src="assets\js\plugins\moment.min.js"></script>
-
-<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-<script src="assets\js\plugins\bootstrap-datetimepicker.min.js"></script>
-
-<!--	Plugin for the Sliders, full documentation here: https://refreshless.com/nouislider/ -->
-<script src="assets\js\plugins\nouislider.min.js"></script>
-
-
-
-<!--	Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->
-<script src="assets\js\plugins\bootstrap-selectpicker.js"></script>
-
-<!--	Plugin for Tags, full documentation here: https://xoxco.com/projects/code/tagsinput/  -->
-<script src="assets\js\plugins\bootstrap-tagsinput.js"></script>
-
-<!--	Plugin for Fileupload, full documentation here: https://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="assets\js\plugins\jasny-bootstrap.min.js"></script>
-
-<!-- Plugins for presentation and navigation  -->
-<script src="assets\assets-for-demo\js\modernizr.js"></script>
-
-
-
-
-<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-
-<script src="assets\js\material-dashboard.js?v=2.0.1"></script>
+    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="{{asset('js/jquery.bootstrap-wizard.js')}}"></script>
+    <!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
+    <script src="{{asset('js/bootstrap-notify.js')}}"></script>
+    <!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
+    <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="{{asset('js/fullcalendar.min.js')}}"></script>
+    <!-- demo init -->
+    <script src="{{asset('js/demo.js')}}"></script>
+    <script src="{{asset('js/jquery.datatables.js')}}"></script>
 
 
 
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script src="{{asset('js/sweetalert2.js')}}"></script>
 
-<!-- Library for adding dinamically elements -->
-<script src="assets\js\plugins\arrive.min.js" type="text/javascript"></script>
 
-<!-- Forms Validations Plugin -->
-<script src="assets\js\plugins\jquery.validate.min.js"></script>
 
-<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
-<script src="assets\js\plugins\chartist.min.js"></script>
-
-<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-<script src="assets\js\plugins\jquery.bootstrap-wizard.js"></script>
-
-<!--  Notifications Plugin, full documentation here: https://bootstrap-notify.remabledesigns.com/    -->
-<script src="assets\js\plugins\bootstrap-notify.js"></script>
-
-<!-- Vector Map plugin, full documentation here: https://jvectormap.com/documentation/ -->
-<script src="assets\js\plugins\jquery-jvectormap.js"></script>
-
-<!-- Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->
-<script src="assets\js\plugins\nouislider.min.js"></script>
-
-<!--  Plugin for Select, full documentation here: https://silviomoreto.github.io/bootstrap-select -->
-<script src="assets\js\plugins\jquery.select-bootstrap.js"></script>
-
-<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
-<script src="assets\js\plugins\jquery.datatables.js"></script>
-
-<!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
-<script src="assets\js\plugins\sweetalert2.js"></script>
-
-<!-- Plugin for Fileupload, full documentation here: https://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="assets\js\plugins\jasny-bootstrap.min.js"></script>
-
-<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script src="assets\js\plugins\fullcalendar.min.js"></script>
-
-<!-- demo init -->
-<script src="{{asset('js/demo.js')}}"></script>
 
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 
 
+    <script src="{{asset('js/arrive.min.js')}}"></script>
 
 
 
@@ -656,4 +676,5 @@ $.ajaxSetup({
 
 
     @yield('custemScript')
+    @yield('custemImp')
 </html>

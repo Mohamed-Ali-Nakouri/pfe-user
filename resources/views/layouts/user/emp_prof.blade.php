@@ -1,9 +1,9 @@
-@extends('layouts.admin.adminDashbord')
+@extends('layouts.dashboard')
 
 @section('custemImp')
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <style>
         tr{height:10px; !important; max-width: 100px!important;}
         .card-calendar table td{text-align: center!important;
@@ -19,21 +19,15 @@
             max-height: fit-content}
 
 
-
-
-
-
-
-
-
-
-
-
-
     </style>
+
+
+
+
 @endsection
 
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container-fluid">
     <form action="/emp_insert" method="POST">
         @csrf
@@ -474,7 +468,13 @@
 
 
         @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="assets\js\plugins\perfect-scrollbar.jquery.min.js"></script>
+<script src="\js\perfect-scrollbar.min.js"></script>
 @section('custemScript')
 
     <script>

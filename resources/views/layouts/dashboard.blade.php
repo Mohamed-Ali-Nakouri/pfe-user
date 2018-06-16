@@ -1,7 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="assets\js\plugins\perfect-scrollbar.jquery.min.js"></script>
+        <script src="\js\perfect-scrollbar.min.js"></script>
 @csrf
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
@@ -243,7 +249,7 @@
                     <div class="collapse" id="pagesExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/orientation">
+                                <a class="nav-link" href="/emploiprof">
                                     <span class="sidebar-mini"> T </span>
                                     <span class="sidebar-normal"> Time Schedule </span>
                                 </a>

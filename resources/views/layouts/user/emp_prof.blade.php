@@ -213,11 +213,7 @@
 
         $(":input[type|='range']").addClass('form-control');
         @endif
-        $("#lession").hide();
-        $(".validate").hide();
-        $(".affect").hide();
-        var selector=$(".validate");
-        const ps = new PerfectScrollbar('.scroll');
+
 
         var $table = $('table.scroll'),
             $bodyCells = $table.find('tbody tr:first').children(),

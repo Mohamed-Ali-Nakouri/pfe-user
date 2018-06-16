@@ -218,7 +218,8 @@
         </form>
 
     </div>
-
+@endsection
+@section('custemScript')
     <script>
         $.ajaxSetup({
             headers: {

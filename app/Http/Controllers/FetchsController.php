@@ -420,59 +420,55 @@ class FetchsController extends Controller
     }
     public function classeEmp()
     {$result='';$j=1;
-    $classe=emp_class::where('idClass',request('idClasse'))->get();
-    for ($i=0;$i<6;$i++)
-    {$matiere=matiere::all();$inL='';$inMA='';$inME='';$inJ='';$inV='';$inS='';
-        $result.='<div class="fc-row" style="">
+        $classe=emp_class::where('idClass',request('idClasse'))->get();
+        for ($i=0;$i<6;$i++)
+        {$matiere=matiere::all();$inL='';$inMA='';$inME='';$inJ='';$inV='';$inS='';
+            $result.='<div class="fc-row" style="">
                  <div class="fc-bg">
                     <table class="text-left" id="table">
                     <tbody >
-                     <tr style="font-family: Arial, serif;font-size:xx-small;overflow: hidden">
+                     <tr style="font-family: Arial, serif;font-size:xx-small;overflow: hidden;text-align: left !important;" >
                      ';
-                    if (count($classe)!=0)
-                      foreach ($matiere as $data)
-                      {   if ($data->idMat==@$classe[$i]->Lundi)
-                          {$salla=emp_salle::where('Lundi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                             $inL.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
-                             if ($data->idMat==@$classe[$i]->Mardi)
-                          {$salla=emp_salle::where('Mardi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                              $inMA.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
-                              if ($data->idMat==@$classe[$i]->Mercredi)
-                          {$salla=emp_salle::where('Mercredi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                              $inME.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
-                              if ($data->idMat==@$classe[$i]->Jeudi)
-                          {$salla=emp_salle::where('Jeudi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                              $inJ.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
-                              if ($data->idMat==@$classe[$i]->Vendredi)
-                          {$salla=emp_salle::where('Vendredi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                              $inV.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
-                              if ($data->idMat==@$classe[$i]->Samedi)
-                          {$salla=emp_salle::where('Samedi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
-                              @$prof=Affectedto::where('idMat',$data->idMat)->get();
-                              if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                              $inS.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}}
-
-        $result.='<td id="'.$j++ .'">'.$inL.'</td><td id="'.$j++.'">'.$inMA.'</td><td id="'.$j++.'">'.$inME.'</td><td id="'.$j++.'">'.$inJ.'</td><td id="'.$j++.'">'.$inV.'</td><td id="'.$j++.'">'.$inS.'</td>
+            if (count($classe)!=0)
+                foreach ($matiere as $data)
+                {   if ($data->idMat==@$classe[$i]->Lundi)
+                {$salla=emp_salle::where('Lundi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                    @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                    if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                    $inL.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+                    if ($data->idMat==@$classe[$i]->Mardi)
+                    {$salla=emp_salle::where('Mardi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                        @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                        if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                        $inMA.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+                    if ($data->idMat==@$classe[$i]->Mercredi)
+                    {$salla=emp_salle::where('Mercredi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                        @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                        if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                        $inME.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+                    if ($data->idMat==@$classe[$i]->Jeudi)
+                    {$salla=emp_salle::where('Jeudi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                        @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                        if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                        $inJ.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+                    if ($data->idMat==@$classe[$i]->Vendredi)
+                    {$salla=emp_salle::where('Vendredi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                        @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                        if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                        $inV.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+                    if ($data->idMat==@$classe[$i]->Samedi)
+                    {$salla=emp_salle::where('Samedi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
+                        @$prof=Affectedto::where('idMat',$data->idMat)->get();
+                        if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
+                        $inS.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}}
+            $result.='<td id="'.$j++ .'">'.$inL.'</td><td id="'.$j++.'">'.$inMA.'</td><td id="'.$j++.'">'.$inME.'</td><td id="'.$j++.'">'.$inJ.'</td><td id="'.$j++.'">'.$inV.'</td><td id="'.$j++.'">'.$inS.'</td>
                     </tr>
                     </tbody>
                     </table>
                  </div>
                </div>';
-
-    }
-
-    return $result;
-
+        }
+        return $result;
     }
     public function profEmp()
     {$result='';

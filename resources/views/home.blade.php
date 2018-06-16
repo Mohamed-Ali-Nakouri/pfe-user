@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header"></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -23,7 +23,7 @@
 
                         if($x1==0 && $x2=='Etudiant')
                             {
-                         echo "<br>inscription not completed , complete it<a href='/form'> Here<a/>";
+                         echo "<br>inscription not completed , complete it <a  href='/form'>here</a>";
 
                                 }
                                 elseif ($x1==1 && $x2=='Etudiant')

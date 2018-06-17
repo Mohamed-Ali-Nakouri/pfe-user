@@ -12,11 +12,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;}
-         .scroll{display:block;
-            overflow:hidden;
-             position:relative;
-             scrollbar-y:left;
-            max-height: fit-content}
+
+
+
 
 
     </style>
@@ -215,164 +213,22 @@
         @endif
 
 
-        var $table = $('table.scroll'),
-            $bodyCells = $table.find('tbody tr:first').children(),
-            colWidth;
 
-        // Adjust the width of thead cells when window resizes
-        $(window).resize(function() {
-            // Get the tbody columns width array
-            colWidth = $bodyCells.map(function() {
-                return $(this).width();
-            }).get();
-
-            // Set the width of thead columns
-            $table.find('thead tr').children().each(function(i, v) {
-                $(v).width(colWidth[i]);
-            });
-        }).resize(); // Trigger resize handler
 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $(".sortable").sortable({connectWith: ".sortable",receive:function (e,t) {
-
-            }});
-
-        $(".sortable").sortable({
-            connectWith: ".sortable",
-            hoverClass: "ui-state-active",
-            placeholder: "ui-state-highlight",
-            cursor:"pointer",
-
-
-            receive: function (e, t) {
-                $(".affect").hide();
-
-                if ($(this).attr("id")=='mats')
-                {$(this).find(".matiere").prop("name","");
-                }
-                else {
-                var num=$(this).closest("tr").attr("id");
-                var tabname=$(this).attr("id");
-                var salle='';
-                var elem=$(this);
-                var val=elem.find('.matiere').prop("value");
-                    $(this).find(".matiere").prop("name",tabname+'['+num+']');
-                $(this).addClass('table-active');
-                $(this).removeClass('sortable');
-                ///sallet fargin//
-                    $.ajax({
-                        url:"/fetch_salle_vide2",
-                        method:"POST",
-                        data:{jour:tabname,seance:num},
-                        dataType:"text",
-                        success:function(data)
-                        {$(".list_salle").html("");
-                            $(".list_salle").html(data);
-
-
-                        }
-                    });
-                    $('.list_salle').change(function () {
-                       $(".affect").show();
-                        salle=$(".list_salle option:selected").val();
 
 
 
-                    });
-                    $('.affect').click(function () {
-
-                        $("#insert").show();
-                        var list=val.split('_');
-                        var newval=list[0]+'_'+list[1]+'_'+salle;
-
-                        elem.find(".matiere").prop("value",newval);
-                    });
-
-                $('#noticeModal').modal({backdrop: 'static',
-                        keyboard: false});
-                }
-            },
-            stop: function (e, t) {
-
-                if ($(this).children().length == 0) {
-                    $(this).addClass('test');
-                    $(this).removeClass('table-active');
-                    $(this).addClass('sortable');
-                }
-                if($(t.item).closest('tr').children().length >0){
-                    $(t.item).closest('tr').removeClass('test');
-                }
-            },
-            helper: function (e, tr) {
-                var $originals = tr.children();
-                var $helper = tr.clone();
-                $helper.children().each(function (index) {
-                    // Set helper cell sizes to match the original sizes
-                    $(this).width($originals.eq(index).width());
-                });
-                $helper.css("background-color", "rgb(223, 240, 249)");
-                return $helper;
-            }
-        });
-
-        $("#sortable").disableSelection();
-
-        $("#class").change(function () {
-            var idClasse=this.value;
 
 
-            $.ajax({
-                url:"/fetch_classeEmp",
-                method:"POST",
-                data:{idClasse:idClasse},
-                dataType:"text",
-                success:function(data)
-                {   $(".here").html("");
-                    $(".here").html(data);
-                    $(".pdfClass").show();
-
-                }
-            });
-            //classpdf
-            $(".pdfClass").click(function () {
-                $.ajax({
-                    url:"/Class_pdf",
-                    method:"POST",
-                    async:true,
-                    data:{classeid:idClasse,_token: '{!! csrf_token() !!}'},
-                    dataType:"text"
-                });
-            });
-
-        });
         $("#prof").change(function () {
            var idprof=this.value;
-            $("#mytable").find('')
-            $.ajax({
-                url:"/fetch_affectedtotab",
-                method:"POST",
-                data:{MatProf:idprof},
-                dataType:"text",
-                success:function(data)
-                {   $(".mat").remove();
-                    $(".mats").html(data);
-                    $(".pdfEnse").show();
-                }
-            });
-            //ens pdf
-            $(".pdfEnse").click(function () {
-                $.ajax({
-                    url:"/Ense_pdf",
-                    method:"POST",
-                    async:true,
-                    data:{profid:idprof,_token: '{!! csrf_token() !!}'},
-                    dataType:"text"
-                });
-            });
+            console.log(idprof);
+            $("#mytable").find('');
             $.ajax({
                 url:"/fetch_prof_emp",
                 method:"POST",
@@ -381,81 +237,7 @@
                 success:function(data)
                 {$(".emp_prof").html('');
                     $(".emp_prof").html(data);
-                    $(".sortable").sortable({
-                        connectWith: ".sortable",
-                        hoverClass: "ui-state-active",
-                        placeholder: "ui-state-highlight",
-                        cursor:"pointer",
-
-
-                        receive: function (e, t) {
-                            $(".affect").hide();
-                            if ($(this).attr("id")=='mats')
-                            {$(this).find(".matiere").prop("name","");
-                            }
-                            else {
-                                var num=$(this).closest("tr").attr("id");
-                                var tabname=$(this).attr("id");
-                                var salle='';
-                                var elem=$(this);
-                                var val=elem.find('.matiere').prop("value");
-                                $(this).find(".matiere").prop("name",tabname+'['+num+']');
-                                $(this).addClass('table-active');
-                                $(this).removeClass('sortable');
-                                ///sallet fargin//
-                                $.ajax({
-                                    url:"/fetch_salle_vide2",
-                                    method:"POST",
-                                    data:{jour:tabname,seance:num},
-                                    dataType:"text",
-                                    success:function(data)
-                                    {$(".list_salle").html("");
-                                        $(".list_salle").html(data);
-
-                                    }
-                                });
-                                $('.list_salle').change(function () {
-                                    $(".affect").show();
-                                    salle=$(".list_salle option:selected").val();
-
-
-
-                                });
-                                $('.affect').click(function () {
-
-
-                                    var list=val.split('_');
-                                    var newval=list[0]+'_'+list[1]+'_'+salle;
-
-                                    elem.find(".matiere").prop("value",newval);
-                                });
-
-                                $('#noticeModal').modal({backdrop: 'static',
-                                    keyboard: false});
-                            }
-                        },
-                        stop: function (e, t) {
-                            if ($(this).children().length == 0) {
-                                $(this).addClass('test');
-                                $(this).removeClass('table-active');
-                                $(this).addClass('sortable');
-                            }
-                            if($(t.item).closest('tr').children().length >0){
-                                $(t.item).closest('tr').removeClass('test');
-                            }
-                        },
-                        helper: function (e, tr) {
-                            var $originals = tr.children();
-                            var $helper = tr.clone();
-                            $helper.children().each(function (index) {
-                                // Set helper cell sizes to match the original sizes
-                                $(this).width($originals.eq(index).width());
-                            });
-                            $helper.css("background-color", "rgb(223, 240, 249)");
-                            return $helper;
-                        }
-                    });
-
+                    console.log(data);
                 }
             });
 
@@ -463,119 +245,7 @@
 
         });
 
-        $("body").on('click','.cla',function () {
-           var value=$(this).find('.classe').val();
-           var data=value.split('_');
-           var classe=data['1'];
-            selector.show();
-           /////farag_table
-            $tab=[];
-            //// re_insilize_the sortable
-            $('.mytable td').each(function () {
-               $(this).removeClass('table-warning');
-               $(this).addClass('sortable');
 
-            });
-            /// AJAX
-            $.ajax({
-                url:"/fetch_classeEmp",
-                method:"POST",
-                data:{idClasse:classe},
-                dataType:"text",
-                success:function(data)
-                {   $(".here").html("");
-                     $(".here").html(data);
-                     $("#class").val('0');
-                     $("#table tr").each(function () {
-                         $(this).find('td:not(:empty)').each(function (ele) {
-                            var id=$(this).attr("id")
-                             $tab.push(id);
-
-
-                         });
-                         $tab.forEach(function (element) {
-                             var elemen=element;
-
-                         $('.mytable .sortable').each(function (ele) {
-                             var num=$(this).attr('num');
-
-                             if(num==elemen&&$(this).is(':empty'))
-                             {$(this).removeClass('sortable');
-                              $(this).addClass('table-warning');
-
-                             }
-
-                         });
-                         });
-                     });
-
-
-
-
-
-                }
-            });
-
-        });
-
-        $("#salle").change(function () {
-           var idRoom=$(this).val();
-
-            $.ajax({
-              url:"/fetch_emp_salle",
-              method:"POST",
-              data:{idRoom:idRoom},
-              dataType:"text",
-              success:function(data)
-              {$(".heresalle").html("");
-               $(".heresalle").html(data);
-               $(".pdfRoom").show();
-              }
-            });
-            //Roompdf
-            $(".pdfRoom").click(function () {
-                $.ajax({
-                    url:"/ClassRoom_pdf",
-                    method:"POST",
-                    async:true,
-                    data:{Roomid:idRoom,_token: '{!! csrf_token() !!}'},
-                    dataType:"text"
-                });
-            });
-        });
-        $("#jour").change(function () {
-           $("#lession").show();
-
-           if($("#lession").val()!=null)
-           {var jour=$(this).val();
-               var lession=$("#lession").val();
-               $.ajax({
-               url:"/fetch_salle_vide",
-               method:"POST",
-               data:{jour:jour,Lession:lession},
-               dataType:"text",
-               success:function(data)
-               {$(".sallerhere").html("");
-                   $(".sallerhere").html(data);
-
-               }
-           });}
-           });
-        $("#lession").change(function () {
-           var jour=$("#jour").val();
-            var lession=$(this).val();
-            $.ajax({
-                url:"/fetch_salle_vide",
-                method:"POST",
-                data:{jour:jour,Lession:lession},
-                dataType:"text",
-                success:function(data)
-                {$(".sallerhere").html("");
-                    $(".sallerhere").html(data);
-
-                }
-            });
-        });
 $('.EM').addClass('active');
 
 

@@ -26,8 +26,7 @@ class FichVoeuxController extends Controller
     {
         $sess=session::where('etat','v')->get();
         $prof=enseignant::where('email',Auth::user()->email)->get();
-
-        $class=classe::where('idDept',$prof['0']->get());
+        $class=classe::where('idDept',$prof['0']->idDept)->get();
         $time=lession::all();
         return view('layouts.user.Fiche_Voeux',compact('sess','prof','time','class'));
     }

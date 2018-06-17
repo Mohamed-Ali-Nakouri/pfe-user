@@ -4,8 +4,17 @@
 @section('content')
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
-        td{height:10px;}
+
+
+        tr{height:10px; !important; max-width: 100px!important;}
+        .card-calendar table td{text-align: center!important;
+        }
+        td{max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;}
 
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -142,7 +151,9 @@ $(".affect").hide();
                 data:{idClasse:idClasse},
                 dataType:"text",
                 success:function(data)
-                {   $(".here").html("");
+                {
+
+
                     $(".here").html(data);
                 }
             });

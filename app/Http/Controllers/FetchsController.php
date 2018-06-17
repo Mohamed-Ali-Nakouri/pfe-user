@@ -421,14 +421,14 @@ class FetchsController extends Controller
     public function classeEmp()
     {$result='';$j=1;
         $classe=emp_class::where('idClass',request('idClasse'))->get();
-        for ($i=0;$i<6;$i++)
-        {$matiere=matiere::all();$inL='';$inMA='';$inME='';$inJ='';$inV='';$inS='';
-            $result.='<div class="fc-row" style="">
+        $result.='<div class="fc-row" style="">
                  <div class="fc-bg">
                     <table class="text-left" id="table">
                     <tbody >
                      <tr style="font-family: Arial, serif;font-size:xx-small;overflow: hidden;text-align: left !important;" >
-                     ';
+                     ';for ($i=0;$i<6;$i++)
+        {$matiere=matiere::all();$inL='';$inMA='';$inME='';$inJ='';$inV='';$inS='';
+
             if (count($classe)!=0)
                 foreach ($matiere as $data)
                 {   if ($data->idMat==@$classe[$i]->Lundi)
@@ -477,10 +477,10 @@ class FetchsController extends Controller
         { $emp_prof=emp_prof::where('MatProf',$request['MatProf'])->where('Lession',($i+1))->get();
 
             $result.='<div class="fc-row" style="">
-                  <div class="fc-bg">
-                      <table class="text-left" id="table" >
-                          <tbody>
-                          <tr class="tr" id="'.$i.'" >';
+                 <div class="fc-bg">
+                 <table class="text-left" id="table" >
+                 <tbody>
+                 <tr class="tr" id="'.$i.'" >';
             if (isset($emp_prof['0'])&&$emp_prof['0']->Lundi!='')
             {$salle=emp_salle::where('Lession',($i+1))->where('Lundi',$emp_prof['0']->Lundi)->get();
 

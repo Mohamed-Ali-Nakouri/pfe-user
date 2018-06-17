@@ -129,25 +129,6 @@
 
             </div>
 
-            <div class="col-md-2">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">
-                            UnAffected Subjects
-                        <small class="description">-Professor</small>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="mats" class="sortable mats" style="height: 150px"></div>
-
-
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-success btn-link btn-round validate"  style="font-size: small;">
-                    <i class="material-icons" >done_all</i>
-                    Confirm
-                </button>
-            </div>
 
 
 

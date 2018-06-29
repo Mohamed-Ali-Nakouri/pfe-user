@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-/* Authentication Routes...
+/* Authentication Routes... that will ovveride the other ones if they were replaced
 $this->get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('/login', 'Auth\LoginController@login');
 $this->post('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -38,22 +38,39 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
         return view('layouts.dashboard');
     });
+    Route::get('/form',function () {
+        return view('layouts.user.form');
+    });
+    Route::get('/orientation',function () {
+        return view('layouts.user.orientation');
+    });
+/////////////////FV///////////////////////////
+
+    Route::GET('/Fich_voeux','FichVoeuxController@show');
+
+//////////////////////////////////Orientation/////////////////////////////////
+
+
+
+    Route::get('/orientation','EtudiantController@get');
+////////////////////emploit/////////////////////////////////////
+    Route::get('/emploi','EmploiController@show');
+    Route::get('/emploiprof','EmploiController@showProf');
+    Route::POST('/fetch_classeEmp','FetchsController@classeEmp');
+///////////////////////////////////////////////////////////////////////////
+
 });
 
 //////////////////////EtudiantController////////////////////////
 Route::post('/create_std','EtudiantController@store')->name('reg');
 
 ////////////////////////////////////////////////////////////////
-Route::get('/form',function () {
-    return view('layouts.user.form');
-});
 
 
 
 
-Route::get('/orientation',function () {
-    return view('layouts.user.orientation');
-});
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////Fetchs//////////////////////
 Route::get('/fetch_formation','FetchsController@formation');
@@ -143,25 +160,23 @@ Route::POST('/getClasses','examController@fetch_classes_for_exam');
 Route::POST('/getMats','examController@find');
 ////////////////////////////////////////////////////////////////////////////////////
 
+Route::get('/profile',function () {
+    return view('layouts.user.user');
+});
 
 //////////////////////////////////Orientation/////////////////////////////////
 
 
 
-Route::get('/orientation','EtudiantController@get');
-Route::get('test',function (){
-    return view('layouts.user.oriontation');
-});
-Route::get('/emploi','EmploiController@show');
-Route::get('/emploiprof','EmploiController@showProf');
+
+////////////////////emploit/////////////////////////////////////
+
 Route::POST('/fetch_classeEmp','FetchsController@classeEmp');
 ///////////////////////////////////////////////////////////////////////////
 
-Route::get('/profile',function () {
-    return view('layouts.user.user');
-});
+
 /////////////////FV///////////////////////////
 
-Route::GET('/Fich_voeux','FichVoeuxController@show');
+
 Route::post('/store','FichVoeuxController@store');
 Route::get('/createPDF','FichVoeuxController@createPDF');

@@ -45,9 +45,9 @@
 
                 </div><br><br><br><br><br><br><br>
                 <label for="from">From</label>
-                <input type="text" id="from" name="from" class="form-control">
+                <input type="text" id="from" name="from" >
                 <label for="to">to</label>
-                <input type="text" id="to" name="to" class="form-control">
+                <input type="text" id="to" name="to" >
                 </div>
             </div>
             </div>

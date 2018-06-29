@@ -419,15 +419,22 @@ class FetchsController extends Controller
         return $result;
     }
     public function classeEmp()
-    {$result='';$j=1;
+    {
+        $result='';$j=1;
         $classe=emp_class::where('idClass',request('idClasse'))->get();
-        $result.='<div class="fc-row" style="">
-                 <div class="fc-bg">
-                    <table class="text-left" id="table">
-                    <tbody >
-                     <tr style="font-family: Arial, serif;font-size:xx-small;overflow: hidden;text-align: left !important;" >
-                     ';for ($i=0;$i<6;$i++)
-        {$matiere=matiere::all();$inL='';$inMA='';$inME='';$inJ='';$inV='';$inS='';
+        $result.='  <div class="fc-row" style="">
+  <div class="fc-bg">
+  <table class="table">
+  <tbody>
+   <tr >';
+        for ($i=0;$i<6;$i++)
+        {$matiere=matiere::all();
+        $inL='';
+        $inMA='';
+        $inME='';
+        $inJ='';
+        $inV='';
+        $inS='';
 
             if (count($classe)!=0)
                 foreach ($matiere as $data)
@@ -460,14 +467,27 @@ class FetchsController extends Controller
                     {$salla=emp_salle::where('Samedi',$classe[$i]->idClass)->where('Lession',$classe[$i]->Lession)->get();
                         @$prof=Affectedto::where('idMat',$data->idMat)->get();
                         if (count($prof)!=0)$profe=$prof['0']->nomProf; else $profe='';
-                        $inS.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}}
-            $result.='<td id="'.$j++ .'">'.$inL.'</td><td id="'.$j++.'">'.$inMA.'</td><td id="'.$j++.'">'.$inME.'</td><td id="'.$j++.'">'.$inJ.'</td><td id="'.$j++.'">'.$inV.'</td><td id="'.$j++.'">'.$inS.'</td>
-                    </tr>
+                        $inS.=$salla[0]->idSalle.':'.$data->libMat.'<br>'.$profe;}
+
+
+                }
+           $result.='
+<td id="'.$j++ .'">'.$inL.'</td>
+<td id="'.$j++.'">'.$inMA.'</td>
+<td id="'.$j++.'">'.$inME.'</td>
+<td id="'.$j++.'">'.$inJ.'</td>
+<td id="'.$j++.'">'.$inV.'</td>
+<td id="'.$j++.'">'.$inS.'</td>
+                   ';
+
+        }
+
+        $result.='
+                   </tr>
                     </tbody>
                     </table>
                  </div>
-               </div>';
-        }
+               </div> ';
         return $result;
     }
     public function profEmp( Request $request)

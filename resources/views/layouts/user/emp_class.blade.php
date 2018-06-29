@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <style>
+    <style class="a">
 
 
         tr{height:10px; !important; max-width: 100px!important;}
@@ -82,13 +82,13 @@
                                         <td class="fc-widget-content">
                                             <div class="fc-scroller fc-day-grid-container" style="overflow: hidden;">
                                                 <div class="fc-day-grid fc-unselectable">
-                                                    <div class="here">
+                                                    <div >
                                                     @for($i=0;$i<6;$i++)
                                                             <div class="fc-row" style="">
                                                                 <div class="fc-bg">
-                                                                    <table class="">
+                                                                    <table class="mytable">
                                                                         <tbody>
-                                                                        <tr >
+                                                                        <tr  class="here">
                                                                             <td></td>
                                                                             <td></td>
                                                                             <td></td>
@@ -141,25 +141,39 @@ $(".affect").hide();
 
 
 
-        $("#class").change(function () {
-            var idClasse=this.value;
-            $("#salle").val(0);
+        // $("#class").change(function () {
+        //     var idClasse=this.value;
+        //     $("#salle").val(0);
+        //
+        //     $.ajax({
+        //         url:"/fetch_classeEmp",
+        //         method:"POST",
+        //         data:{idClasse:idClasse},
+        //         dataType:"text",
+        //         success:function(data)
+        //         {
+        //
+        //             $(".here").html();
+        //             $(".here").html(data);
+        //         }
+        //     });
+        //     });
 
-            $.ajax({
-                url:"/fetch_classeEmp",
-                method:"POST",
-                data:{idClasse:idClasse},
-                dataType:"text",
-                success:function(data)
-                {
+$("#class").change(function () {
+    var idClasse = this.value;
+    $.ajax({
+        url: "/fetch_classeEmp",
+        method: "POST",
+        data: {idClasse: idClasse},
+        dataType: "text",
+        success: function (data) {
 
+            $(".here").html(data);
 
-                    $(".here").html(data);
-                }
-            });
-            });
+        }
+    });
 
-
+});
 
 
 

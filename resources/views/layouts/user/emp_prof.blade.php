@@ -88,12 +88,12 @@
                                                 </td>
                                             </tr>
                                         </thead>
-                                        <tbody class="fc-body">
+                                        <tbody class="fc-body" class="emp_prof">
                                         <tr>
                                             <td class="fc-widget-content">
                                                 <div class="fc-scroller fc-day-grid-container" style="overflow: hidden;">
                                                     <div class="fc-day-grid fc-unselectable">
-                                                        <div class="emp_prof">
+                                                        <div >
                                                     <?php $j=1; ?>
                                                     @for($i=0;$i<6;$i++)
                                                             <div class="fc-row" style="">
@@ -216,8 +216,8 @@
                 data:{MatProf:idprof},
                 dataType:"text",
                 success:function(data)
-                {$(".emp_prof").html('');
-                    $(".emp_prof").html(data);
+                {
+                    $(".mytable").html(data);
                     console.log(data);
                 }
             });

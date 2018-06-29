@@ -12,6 +12,12 @@
 
 
     <style>
+        .center {
+            margin: auto;
+            width: 50%;
+
+            padding: 10px;
+        }
 
         se{
             font-weight: bolder;
@@ -138,7 +144,7 @@
 
 
 
-
+<div  class="center">
 
                                     <tr>
                                         <td style="text-align: center"><br>
@@ -152,7 +158,7 @@
 
                                     </tr>
 
-
+</div>
 
 
 
@@ -160,7 +166,7 @@
             </div>
 
             <br><br>
-            <button type="submit" class="sub btn btn-outline-success" formaction="/oritoPrint" value="Confirmer" style="float: right; margin-top: 2%;margin-right: 50%; ;">Save</button>
+
         </form>
 
     </div>
